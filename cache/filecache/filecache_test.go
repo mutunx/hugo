@@ -41,7 +41,7 @@ import (
 func TestFileCache(t *testing.T) {
 	t.Parallel()
 	c := qt.New(t)
-
+	// 创建两个临时文件
 	tempWorkingDir, err := ioutil.TempDir("", "hugo_filecache_test_work")
 	c.Assert(err, qt.IsNil)
 	defer os.Remove(tempWorkingDir)
@@ -60,7 +60,7 @@ func TestFileCache(t *testing.T) {
 		{tempCacheDir, tempWorkingDir},
 		{tempCacheDir, tempWorkingDir},
 	} {
-
+		// 创建两个结构体 然后遍历结构体
 		configStr := `
 workingDir = "WORKING_DIR"
 resourceDir = "resources"
@@ -80,10 +80,11 @@ dir = ":cacheDir/c"
 `
 
 		winPathSep := "\\\\"
-
+		// 替换字符  NewReplacer("1","a","2","b")  "1234"替换为"ab34"
 		replacer := strings.NewReplacer("CACHEDIR", test.cacheDir, "WORKING_DIR", test.workingDir)
 
 		configStr = replacer.Replace(configStr)
+		// 替换旧字符为新字符  n代表0-n的范围 n < 0 或者 n>字符串长度则取全长
 		configStr = strings.Replace(configStr, "\\", winPathSep, -1)
 
 		p := newPathsSpec(t, osfs, configStr)
