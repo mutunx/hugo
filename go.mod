@@ -71,7 +71,7 @@ require (
 	github.com/tetratelabs/wazero v1.11.1-0.20260521072212-475a1f8f0dc3
 	github.com/yuin/goldmark v1.8.2
 	github.com/yuin/goldmark-emoji v1.0.6
-	go.uber.org/automaxprocs v1.5.3
+	go.uber.org/automaxprocs v1.6.0
 	gocloud.dev v0.45.0
 	golang.org/x/image v0.41.0
 	golang.org/x/mod v0.36.0
